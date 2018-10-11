@@ -1,5 +1,5 @@
 import { MyApp } from './app.component';
-import { TestBed } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { IonicModule, Platform } from 'ionic-angular';
 import { PlatformMock, StatusBarMock, SplashScreenMock } from 'ionic-mocks'
 import { StatusBar } from '@ionic-native/status-bar';

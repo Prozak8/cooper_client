@@ -1,10 +1,14 @@
 import { HomePage } from "./home";
-import { TestBed, async } from "@angular/core/testing";
+import { TestBed, async, inject } from "@angular/core/testing";
 import { IonicModule, Platform, NavController } from "ionic-angular";
 import { StatusBar } from "@ionic-native/status-bar";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { PlatformMock, StatusBarMock, SplashScreenMock, NavControllerMock } from "ionic-mocks";
 import { PersonProvider } from "../../providers/person/person";
+import { Angular2TokenService } from 'angular2-token';
+import { MockBackend } from '@angular/http/testing';
+import { CooperProvider } from "../../providers/cooper/cooper";
+
 
 
 describe("HomePage", () => {
@@ -20,7 +24,12 @@ describe("HomePage", () => {
         { provide: Platform, useFactory: () => PlatformMock.instance() },
         { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
         { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
-        { provide: NavController, useFactory: () => NavControllerMock.instance() }
+        { provide: NavController, useFactory: () => NavControllerMock.instance() },
+        PersonProvider,
+        CooperProvider,
+        Angular2TokenService,
+        MockBackend
+
       ]
     }).compileComponents();
   }));
@@ -44,7 +53,7 @@ describe("HomePage", () => {
   });
 
   it("should have user array default values", () => {
-    expect(homepage.user).toEqual({ distance: 1000, age: 20 });
+    expect(homepage.user).toEqual({ distance: 1000, age: 20, gender: "female" });
   })
 
   it("should have calculate function", () => {

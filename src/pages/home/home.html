@@ -28,13 +28,6 @@
         <ion-label range-left>10</ion-label>
         <ion-label range-right>120</ion-label>
       </ion-range>
-    </ion-item>
-    <button ion-item (click)="loginPopUp()" *ngIf="!currentUser">
-      Login
-    </button>
-    <button ion-item (click)="logout()" *ngIf="currentUser">
-      Logout {{currentUser.email}}
-    </button>
   </ion-list>
 
   <button black ion-button (click)="calculate()">Calculate</button>

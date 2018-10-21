@@ -6,6 +6,18 @@
   </ion-header>
 
   <ion-content>
+      <button ion-item (click)="loginPopUp()" *ngIf="!currentUser" icon-start>
+        <ion-icon name="log-in"></ion-icon>
+        Login
+      </button>
+      <button ion-item (click)="signUpPopUp()" *ngIf="!currentUser" icon-start>
+        <ion-icon name="key"></ion-icon>
+        Sign Up
+      </button>
+      <button ion-item (click)="logout()" *ngIf="currentUser" icon-start>
+        <ion-icon name="log-out"></ion-icon>
+        Logout {{currentUser.email}}
+      </button>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}

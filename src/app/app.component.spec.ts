@@ -54,25 +54,25 @@ describe('AppComponent', () => {
     it('login method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
 
         mockBackend.connections.subscribe(
-            c => {
-                expect(c.request.getBody()).toEqual(JSON.stringify(signInData));
-                expect(c.request.method).toEqual(RequestMethod.Post);
-                expect(c.request.url).toEqual('https://https://cooper-zdh-api.herokuapp.com/api/v1/auth/sign_in');
-            }
+          c => {
+            expect(c.request.getBody()).toEqual(JSON.stringify(signInData));
+            expect(c.request.method).toEqual(RequestMethod.Post);
+            expect(c.request.url).toEqual('https://cooper-zdh-api.herokuapp.com/api/v1/auth/sign_in');
+          }
         );
-
+    
         component.login(signInData);
-    }));
-
-    it('signOut method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
-
+      }));
+    
+      it('signOut method', inject([Angular2TokenService, MockBackend], (tokenService, mockBackend) => {
+    
         mockBackend.connections.subscribe(
-            c => {
-                expect(c.request.method).toEqual(RequestMethod.Delete);
-                expect(c.request.url).toEqual('https://https://cooper-zdh-api.herokuapp.com/v1/auth/sign_out');
-            }
+          c => {
+            expect(c.request.method).toEqual(RequestMethod.Delete);
+            expect(c.request.url).toEqual('https://cooper-zdh-api.herokuapp.com/api/v1/auth/sign_out');
+          }
         );
-
+    
         component.logout();
     }));
 });
